@@ -16,11 +16,15 @@
     {
       "name": "Anthony Pesch",
       "email": "inolen@gmail.com"
+    },
+    {
+      "name": "Alexander Vieth",
+      "email": "alexander.vieth@mail.mcgill.ca"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/inolen/titan-node.git"
+    "url": "https://github.com/avieth/titan-node"
   },
   "readmeFilename": "README.md",
   "scripts": {
@@ -34,5 +38,11 @@
     "mocha": "~1.14.0",
     "jshint": "~2.3.0",
     "temp": "~0.6.0"
-  }
+  },
+  "_id": "titan-node@0.1.11",
+  "dist": {
+    "shasum": "172cc93243b68780b60b874276faeec8596d04eb"
+  },
+  "_from": "titan-node@git://github.com/avieth/titan-node.git",
+  "main": "lib/titan.js"
 }
