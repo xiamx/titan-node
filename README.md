@@ -18,19 +18,28 @@ $ npm install titan-node
 
 ## Quick start
 
+With this package you can control a Titan Java instance inside node, with
+minimal exposure to the Java bridge! Your entry point is the Titan constructor,
+which demands configuration options, and allows you to open a graph. With the
+graph (a TitanGraphWrapper instance) you can start working with gremlin via
+the gremlin-node Java wrapper.
+
 ```javascript
 var Titan = require('titan-node');
-var gremlin = new Titan.Gremlin({ loglevel: 'OFF' });
-
-var GraphOfTheGodsFactory = gremlin.java.import('com.thinkaurelius.titan.example.GraphOfTheGodsFactory');
-
-var graph = GraphOfTheGodsFactory.createSync('testdirectory');
-var g = gremlin.wrap(graph);
-
-g.V('name', 'saturn').next(function (err, saturn) {
-  g.start(saturn).in('father').in('father').next(function (err, grandchild) {
-    var name = grandchild.getPropertySync('name');
-    console.log(name);
-  });
+var titan = new Titan({
+  titanConfig : {
+    // Titan options; maybe something like
+    // storage : {
+    //   backend : 'cassandra',
+    //   hostname : 'localhost'
+    // }
+  },
+  gremlinConfig : {
+    // Gremlin options.
+  }
 });
+
+// Graph is a TitanGraphWrapper, which is a GraphWrapper from gremlin-node
+// with some extra goodies for Titan specific things like making keys or labels.
+var graph = titan.openSync();
 ```
