@@ -174,4 +174,13 @@ titanInstance.open(function (in_error, in_graph) {
     ]);
     
     async.waterfall(actions, errorPrinter );
+
+    var result = in_graph.getVertices();
+    console.log('Printing all vertices:');
+    result.forEach(function(v){
+      v.getProperty('text', function(error, p) {
+        console.log(p);
+      });
+    });
+
 });
