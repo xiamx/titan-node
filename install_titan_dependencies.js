@@ -4,7 +4,7 @@ rm -R ./target/dependency
 mkdir -p ./target/dependency
 
 echo "Cloning Titan"
-git clone git@github.com:avieth/titan.git
+git clone git@github.com:xiamx/titan.git
 cd titan
 echo "Packaging via Maven"
 mvn -DskipTests package
